@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Membership & Pricing | Azzurro Z — Luxury Vintage Car Storage Denver</title>
+  <meta name="description" content="Azzurro Z membership tiers: Dino ($400/mo), GTC ($500/mo), Classiche ($600/mo). Climate-controlled vintage car storage in central Denver. Opening Summer 2026." />
+  <link rel="canonical" href="https://www.azzurroz.com/membership" />
+  <meta property="og:title" content="Membership & Pricing | Azzurro Z" />
+  <meta property="og:url" content="https://www.azzurroz.com/membership" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { 'navy-deep': '#0F3A5E', 'navy-dark': '#0A2A42', 'az-blue': '#2B7AB5', 'az-silver': '#C0C0C0' } } }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-navy-dark shadow-lg">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main navigation">
+      <a href="/" class="text-xl font-bold tracking-widest text-white uppercase" aria-label="Azzurro Z — Home">Azzurro Z</a>
+      <div class="desktop-nav flex items-center gap-8">
+        <a href="/#about" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">About</a>
+        <a href="/#why" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Why Us</a>
+        <a href="membership.html" class="text-sm tracking-widest uppercase text-white font-semibold">Membership</a>
+        <a href="/#services" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Services</a>
+        <a href="/#contact" class="btn-primary text-sm px-5 py-2.5 rounded-lg">Join Waitlist</a>
+      </div>
+      <button id="hamburger" class="hamburger flex flex-col gap-1.5 p-2 text-white" aria-label="Open menu" aria-expanded="false">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu px-6 pb-6 bg-navy-dark border-t border-white/10">
+      <div class="flex flex-col gap-4 pt-4">
+        <a href="/#about" class="text-sm tracking-widest uppercase text-az-silver">About</a>
+        <a href="/#why" class="text-sm tracking-widest uppercase text-az-silver">Why Us</a>
+        <a href="membership.html" class="text-sm tracking-widest uppercase text-white font-semibold">Membership</a>
+        <a href="/#services" class="text-sm tracking-widest uppercase text-az-silver">Services</a>
+        <a href="/#contact" class="btn-primary text-center text-sm py-3 rounded-lg mt-2">Join Waitlist</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="bg-navy-deep py-20 text-center hero-pattern">
+      <div class="max-w-3xl mx-auto px-6">
+        <p class="text-xs tracking-[0.4em] uppercase text-az-silver font-medium mb-4">Membership & Pricing</p>
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Choose Your Tier</h1>
+        <p class="text-lg text-gray-300 max-w-xl mx-auto">All memberships include climate-controlled storage, 24/7 security, battery tending, and access to the Azzurro Z community. Opening Summer 2026.</p>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="py-20 bg-gray-50" aria-label="Membership tiers and pricing">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+          <!-- Dino -->
+          <article class="tier-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="bg-navy-dark p-8 text-center">
+              <p class="text-xs tracking-[0.25em] uppercase text-az-silver font-medium mb-2">Entry</p>
+              <h2 class="text-3xl font-extrabold text-white mb-1">Dino</h2>
+              <div class="text-5xl font-extrabold text-white mt-4">$400<span class="text-lg font-normal text-gray-400">/mo</span></div>
+              <p class="text-gray-400 text-sm mt-2">per vehicle</p>
+            </div>
+            <div class="p-8">
+              <ul class="check-list list-none p-0 space-y-3 mb-8">
+                <li>Climate-controlled assigned space</li>
+                <li>24/7 security surveillance</li>
+                <li>Battery tender included</li>
+                <li>Monthly vehicle startup</li>
+                <li>Member lounge access</li>
+                <li>Community event invitations</li>
+              </ul>
+              <a href="/#contact" class="btn-outline w-full text-center block py-3.5 rounded-xl text-sm border-navy-deep text-navy-deep hover:bg-navy-deep hover:text-white">Join Waitlist — Dino</a>
+            </div>
+          </article>
+
+          <!-- GTC (featured) -->
+          <article class="tier-card featured bg-white rounded-2xl shadow-xl overflow-hidden" style="border:2px solid #2B7AB5">
+            <div class="bg-az-blue p-8 text-center">
+              <p class="text-xs tracking-[0.25em] uppercase text-white/70 font-medium mb-2">Most Popular</p>
+              <h2 class="text-3xl font-extrabold text-white mb-1">GTC</h2>
+              <div class="text-5xl font-extrabold text-white mt-4">$500<span class="text-lg font-normal text-white/60">/mo</span></div>
+              <p class="text-white/60 text-sm mt-2">per vehicle</p>
+            </div>
+            <div class="p-8">
+              <ul class="check-list list-none p-0 space-y-3 mb-8">
+                <li>Everything in Dino</li>
+                <li>24/7 member access (keycard)</li>
+                <li>Premium 10-foot wide space</li>
+                <li>Pre-trip vehicle preparation</li>
+                <li>Post-trip spot-free rinse</li>
+                <li>Concierge service</li>
+                <li>Priority event seating</li>
+              </ul>
+              <a href="/#contact" class="btn-primary w-full text-center block py-3.5 rounded-xl text-sm">Join Waitlist — GTC</a>
+            </div>
+          </article>
+
+          <!-- Classiche -->
+          <article class="tier-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="bg-navy-deep p-8 text-center">
+              <p class="text-xs tracking-[0.25em] uppercase text-az-silver font-medium mb-2">Elite</p>
+              <h2 class="text-3xl font-extrabold text-white mb-1">Classiche</h2>
+              <div class="text-5xl font-extrabold text-white mt-4">$600<span class="text-lg font-normal text-gray-400">/mo</span></div>
+              <p class="text-gray-400 text-sm mt-2">per vehicle</p>
+            </div>
+            <div class="p-8">
+              <ul class="check-list list-none p-0 space-y-3 mb-8">
+                <li>Everything in GTC</li>
+                <li>Dedicated premium space</li>
+                <li>24/7 live video feed</li>
+                <li>Complimentary concierge</li>
+                <li>Monthly inspection report</li>
+                <li>VIP event access</li>
+                <li>First priority for new spaces</li>
+              </ul>
+              <a href="/#contact" class="btn-outline w-full text-center block py-3.5 rounded-xl text-sm border-navy-deep text-navy-deep hover:bg-navy-deep hover:text-white">Join Waitlist — Classiche</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Feature comparison table -->
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div class="p-8 border-b border-gray-100">
+            <h2 class="text-2xl font-bold text-navy-deep">Full Feature Comparison</h2>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-gray-100">
+                  <th class="text-left p-4 font-semibold text-gray-500 w-1/2">Feature</th>
+                  <th class="p-4 text-center font-bold text-navy-deep">Dino<br/><span class="font-normal text-gray-400">$400/mo</span></th>
+                  <th class="p-4 text-center font-bold text-az-blue bg-blue-50">GTC<br/><span class="font-normal text-gray-400">$500/mo</span></th>
+                  <th class="p-4 text-center font-bold text-navy-deep">Classiche<br/><span class="font-normal text-gray-400">$600/mo</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Climate-controlled storage</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">24/7 security surveillance</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Battery tender</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Monthly vehicle startup</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Member lounge access</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Community events</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">24/7 keycard access</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Premium 10-foot wide space</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Pre-trip vehicle preparation</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Post-trip spot-free rinse</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Concierge service</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-500 text-xs bg-blue-50">Add-on</td><td class="p-4 text-center text-green-500 font-bold">✓ Included</td></tr>
+                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Dedicated premium space</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">24/7 live video feed</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Monthly inspection report</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+                <tr><td class="p-4 text-gray-700">VIP event access</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-navy-deep text-center hero-pattern">
+      <div class="max-w-2xl mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Secure Your Space?</h2>
+        <p class="text-gray-300 text-lg mb-8">Limited founding member spots available. Join the waitlist now to be first in line when we open Summer 2026.</p>
+        <a href="/#contact" class="btn-primary text-base px-10 py-4 rounded-xl">Join the Waitlist</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-navy-dark border-t border-white/5 py-10 text-center" role="contentinfo">
+    <p class="text-xs text-gray-500">© 2026 Azzurro Z LLC. All rights reserved. <a href="/" class="text-gray-400 hover:text-white transition-colors ml-2">← Back to Home</a></p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

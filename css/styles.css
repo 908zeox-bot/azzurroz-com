@@ -1,0 +1,117 @@
+/* Azzurro Z — Custom Styles */
+/* Brand palette */
+:root {
+  --navy-deep: #0F3A5E;
+  --navy-dark: #0A2A42;
+  --blue-mid: #2B7AB5;
+  --silver: #C0C0C0;
+  --silver-dark: #8A8A8A;
+  --white: #ffffff;
+  --off-white: #E8E8E8;
+}
+
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; margin: 0; color: var(--off-white); background: var(--navy-dark); }
+
+/* Hero grid pattern */
+.hero-pattern {
+  background-color: var(--navy-deep);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Hero photo placeholder — replace with real photo */
+.hero-bg {
+  /* PHOTO: Replace this gradient with hero background image */
+  /* background: url('/images/hero-bg.jpg') center/cover no-repeat; */
+  background: linear-gradient(135deg, #0A1F3A 0%, #0F3A5E 50%, #1a4d7a 100%);
+}
+
+/* Gradient overlays */
+.overlay-navy { background: linear-gradient(to bottom, rgba(15,58,94,0.85), rgba(10,42,66,0.95)); }
+
+/* Nav */
+nav a { text-decoration: none; transition: color 0.2s; }
+nav a:hover { color: var(--white); }
+
+/* Mobile nav */
+.mobile-menu { display: none; }
+.mobile-menu.open { display: block; }
+
+/* Membership cards */
+.tier-card { transition: transform 0.2s, box-shadow 0.2s; }
+.tier-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+.tier-card.featured { border: 2px solid var(--blue-mid); position: relative; }
+.tier-card.featured::before {
+  content: 'Most Popular';
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  background: var(--blue-mid); color: white;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 16px; border-radius: 0 0 8px 8px;
+}
+
+/* FAQ accordion */
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.faq-answer.open { max-height: 500px; }
+.faq-toggle svg { transition: transform 0.3s; }
+.faq-toggle.open svg { transform: rotate(180deg); }
+
+/* Form */
+input, textarea, select {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: white;
+  border-radius: 8px;
+  padding: 12px 16px;
+  width: 100%;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+input:focus, textarea:focus { outline: none; border-color: var(--blue-mid); }
+input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.3); }
+label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--silver); margin-bottom: 6px; font-weight: 600; }
+
+/* Buttons */
+.btn-primary {
+  background: white; color: var(--navy-deep);
+  padding: 14px 32px; border-radius: 8px;
+  font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;
+  border: none; cursor: pointer; text-decoration: none; display: inline-block;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #e8ecf4; }
+.btn-outline {
+  border: 2px solid rgba(255,255,255,0.5); color: white;
+  padding: 14px 32px; border-radius: 8px;
+  font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase;
+  background: transparent; cursor: pointer; text-decoration: none; display: inline-block;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+/* Section headings */
+.section-label {
+  font-size: 0.75rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--blue-mid); font-weight: 600; margin-bottom: 12px;
+}
+.section-title { color: var(--navy-deep); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; }
+.section-title-light { color: white; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; line-height: 1.1; }
+
+/* Feature check list */
+.check-list li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; color: var(--silver); font-size: 0.9rem; }
+.check-list li::before { content: '✓'; color: var(--blue-mid); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }
+  .hamburger { display: flex; }
+  .hero-title { font-size: 2.5rem; }
+}
+@media (min-width: 769px) {
+  .hamburger { display: none; }
+  .mobile-menu { display: none !important; }
+}
