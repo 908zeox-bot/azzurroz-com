@@ -3,30 +3,441 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Azzurro Z | Luxury Vintage Car Storage in Central Denver, CO</title>
-  <meta name="description" content="Azzurro Z is a climate-controlled luxury vintage car storage facility at 1495 S Platte River Drive, Denver CO. Membership-based storage for classic and exotic car collectors. Opening Summer 2026." />
-  <meta name="keywords" content="luxury car storage Denver, vintage car storage Colorado, classic car storage Denver, climate-controlled car storage, collector car storage Denver, exotic car storage" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.azzurroz.com" />
+  <title>Azzurro Z — Denver's Collector Car Sanctuary</title>
+  <meta name="description" content="Azzurro Z is a membership-based, climate-controlled sanctuary for classic and exotic car collectors. 1495 S Platte River Drive, Denver. Opening Summer 2026. Request an invitation." />
+  <link rel="canonical" href="https://www.azzurroz.com/" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Azzurro Z | Luxury Vintage Car Storage in Central Denver" />
-  <meta property="og:description" content="Climate-controlled, membership-based storage for vintage and classic car collectors in the heart of Denver. Battery tending, concierge services, and a curated community. Opening Summer 2026." />
-  <meta property="og:url" content="https://www.azzurroz.com" />
-  <meta property="og:site_name" content="Azzurro Z" />
-  <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Azzurro Z | Luxury Vintage Car Storage in Central Denver" />
-  <meta name="twitter:description" content="Climate-controlled luxury storage for vintage and classic car collectors. Membership-based. Opening Summer 2026." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.azzurroz.com/" />
+  <meta property="og:title"       content="Azzurro Z — Denver's Collector Car Sanctuary" />
+  <meta property="og:description" content="A membership-based, climate-controlled sanctuary for classic and exotic car collectors. Central Denver. Opening Summer 2026." />
+  <meta property="og:site_name"   content="Azzurro Z" />
+  <!-- PHOTO: og:image — 1200×630 hero car or facility photo -->
+  <!-- <meta property="og:image" content="https://www.azzurroz.com/images/og-image.jpg" /> -->
 
-  <!-- Schema.org -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Azzurro Z — Denver's Collector Car Sanctuary" />
+  <meta name="twitter:description" content="Membership-based climate-controlled car storage in central Denver. Opening Summer 2026." />
+
+  <!-- Google Fonts: Cormorant Garamond (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Brand styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    :root {
+      --bg-dark:   #0a0a0a;
+      --bg-card:   #111111;
+      --bg-strip:  #0f1a24;
+      --blue:      #1e5f8c;
+      --blue-dim:  rgba(30,95,140,0.15);
+      --gold:      #c9a96e;
+      --gold-dark: #a8864e;
+      --white:     #f5f5f5;
+      --muted:     rgba(245,245,245,0.55);
+      --border:    rgba(245,245,245,0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Typography ── */
+    h1, h2, h3, .heading {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Logo ── */
+    .logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo span { color: var(--blue); }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+      /* PHOTO: Replace the background-color below with a background-image of the hero car
+         (e.g., background-image: url('images/dino-hero.jpg'); background-size: cover;
+          background-position: center;) and add a dark overlay div inside .hero */
+      background-color: #0a0a0a;
+    }
+
+    /* Subtle radial blue glow behind hero content */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70vw;
+      height: 50vh;
+      background: radial-gradient(ellipse at center, rgba(30,95,140,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin: 0 0 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--white);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    .hero-tagline {
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,245,245,0.3);
+    }
+
+    /* ── Buttons ── */
+    .btn-gold {
+      display: inline-block;
+      background-color: var(--gold);
+      color: #0a0a0a;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .btn-gold:hover { background-color: var(--gold-dark); }
+
+    .btn-ghost {
+      display: inline-block;
+      background: transparent;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      border: 1px solid rgba(245,245,245,0.2);
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ── Urgency Strip ── */
+    .urgency-strip {
+      background-color: var(--blue);
+      padding: 0.85rem 1.5rem;
+      text-align: center;
+    }
+    .urgency-strip p {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+    .urgency-strip span {
+      color: rgba(255,255,255,0.6);
+      margin: 0 0.75rem;
+    }
+
+    /* ── Section base ── */
+    .section {
+      padding: 6rem 1.5rem;
+    }
+
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--white);
+      margin: 0 0 1rem;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* ── Waitlist Form ── */
+    .form-section {
+      background-color: #0d0d0d;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-wrap {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .form-wrap label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-wrap input,
+    .form-wrap textarea {
+      display: block;
+      width: 100%;
+      background: #111;
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .form-wrap input:focus,
+    .form-wrap textarea:focus {
+      border-color: var(--blue);
+    }
+
+    .form-wrap input::placeholder,
+    .form-wrap textarea::placeholder {
+      color: rgba(245,245,245,0.2);
+    }
+
+    .form-wrap textarea { resize: vertical; min-height: 130px; }
+
+    .form-field { margin-bottom: 1.25rem; }
+
+    .form-disclaimer {
+      margin-top: 1rem;
+      font-size: 0.72rem;
+      color: rgba(245,245,245,0.25);
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Why Cards ── */
+    .why-grid {
+      display: grid;
+      gap: 1.5px;
+      background: var(--border);
+    }
+    @media(min-width: 768px) {
+      .why-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .why-card {
+      background: var(--bg-dark);
+      padding: 3rem 2.5rem;
+      text-align: center;
+    }
+
+    .why-icon {
+      width: 2.5rem;
+      height: 2.5rem;
+      color: var(--blue);
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+
+    .why-card h3 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--white);
+      margin: 0 0 0.75rem;
+    }
+
+    .why-card p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ── Story ── */
+    .story-section {
+      background-color: #080808;
+      border-top: 1px solid var(--border);
+    }
+
+    .story-body {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .story-body p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .story-body p:first-of-type {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(245,245,245,0.75);
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: #000;
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { color: var(--blue); }
+
+    .footer-address {
+      font-style: normal;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-email {
+      font-size: 0.85rem;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+    .footer-email:hover { color: var(--gold); }
+
+    .footer-copy {
+      margin-top: 2rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: rgba(245,245,245,0.2);
+      text-transform: uppercase;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Minimal top bar ── */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+    }
+  </style>
+
+  <!-- Schema.org: LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Azzurro Z",
-    "description": "Azzurro Z is a membership-based, climate-controlled luxury storage facility for vintage and classic car collectors in central Denver, Colorado.",
+    "description": "Denver's premier membership-based, climate-controlled vintage and collector car storage facility.",
     "url": "https://www.azzurroz.com",
+    "email": "membership@azzurroz.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "1495 S Platte River Drive",
@@ -35,486 +446,296 @@
       "postalCode": "80223",
       "addressCountry": "US"
     },
-    "geo": { "@type": "GeoCoordinates", "latitude": 39.7092, "longitude": -105.0003 },
-    "openingDate": "2026-06-01",
-    "priceRange": "$400–$600/month per vehicle",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Membership Tiers",
-      "itemListElement": [
-        { "@type": "Offer", "name": "Dino Tier", "price": "400", "priceCurrency": "USD", "description": "Climate-controlled assigned space, 24/7 security, battery tender, monthly vehicle startup, member lounge access." },
-        { "@type": "Offer", "name": "GTC Tier", "price": "500", "priceCurrency": "USD", "description": "Everything in Dino plus 24/7 member access, premium 10-foot wide space, pre-trip preparation, post-trip rinse, concierge service." },
-        { "@type": "Offer", "name": "Classiche Tier", "price": "600", "priceCurrency": "USD", "description": "Everything in GTC plus dedicated premium space, 24/7 live feed, complimentary concierge, monthly inspection report, VIP events." }
-      ]
-    }
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 39.697,
+      "longitude": -105.012
+    },
+    "priceRange": "$$$"
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      { "@type": "Question", "name": "Where is Azzurro Z located?", "acceptedAnswer": { "@type": "Answer", "text": "Azzurro Z is located at 1495 S Platte River Drive, Denver, CO 80223 — just minutes from downtown Denver, closer than any other luxury car storage facility in the area." } },
-      { "@type": "Question", "name": "How much does vintage car storage cost at Azzurro Z?", "acceptedAnswer": { "@type": "Answer", "text": "Azzurro Z offers three membership tiers: Dino ($400/month), GTC ($500/month), and Classiche ($600/month). All include climate-controlled storage, 24/7 security, battery tending, and community events." } },
-      { "@type": "Question", "name": "When does Azzurro Z open?", "acceptedAnswer": { "@type": "Answer", "text": "Azzurro Z is opening Summer 2026. You can join the waitlist now to secure your space." } },
-      { "@type": "Question", "name": "Is Azzurro Z climate-controlled?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Azzurro Z provides museum-quality, climate-controlled storage with temperature and humidity regulation designed specifically for vintage and classic sports cars." } },
-      { "@type": "Question", "name": "What services does Azzurro Z offer beyond car storage?", "acceptedAnswer": { "@type": "Answer", "text": "Beyond climate-controlled storage, Azzurro Z offers battery tending, monthly vehicle startups, pre- and post-trip vehicle preparation, concierge services, wash bay access, and exclusive community events and drives for members." } }
-    ]
-  }
-  </script>
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'navy-deep': '#0F3A5E',
-            'navy-dark': '#0A2A42',
-            'az-blue': '#2B7AB5',
-            'az-silver': '#C0C0C0',
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 </head>
-<body class="bg-navy-dark text-gray-200">
 
-  <!-- HEADER -->
-  <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background:transparent">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main navigation">
-      <a href="/" class="flex items-center gap-3 group" aria-label="Azzurro Z — Home">
-        <!-- LOGO: Replace with <img src="/images/azzurroz-logo.svg" alt="Azzurro Z" class="h-12" /> -->
-        <span class="text-xl font-bold tracking-widest text-white uppercase">Azzurro Z</span>
+<body>
+
+  <!-- ══════════════════════════════════════
+       TOP BAR (minimal — no nav clutter)
+       ══════════════════════════════════════ -->
+  <div class="topbar">
+    <a href="/" class="logo" aria-label="Azzurro Z — Home">
+      Azzurro&nbsp;<span>Z</span>
+    </a>
+    <a href="#waitlist" class="btn-ghost" style="padding: 0.6rem 1.5rem; font-size: 0.65rem;">
+      Request an Invitation
+    </a>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       HERO — full viewport
+       ══════════════════════════════════════ -->
+  <!--
+    PHOTO PLACEMENT:
+    Replace the .hero background-color with:
+      background-image: linear-gradient(to bottom, rgba(10,10,10,0.65) 0%, rgba(10,10,10,0.85) 100%),
+                        url('images/dino-hero.jpg');
+      background-size: cover;
+      background-position: center 40%;
+    Recommended: wide-format photo of the 1972 Dino 246 GTC in Azzurro blue, or facility interior.
+  -->
+  <section class="hero" aria-labelledby="hero-headline">
+    <div style="position: relative; z-index: 1; max-width: 800px; margin: 0 auto;">
+
+      <span class="hero-eyebrow">Denver · Summer 2026</span>
+
+      <h1 class="hero-title" id="hero-headline">
+        A Sanctuary<br />
+        <em>for the Cars</em><br />
+        That Matter
+      </h1>
+
+      <p class="hero-sub">
+        Azzurro Z is a membership-based, climate-controlled retreat for Denver's
+        classic and exotic car collectors — where your automobile receives the
+        care it deserves.
+      </p>
+
+      <a href="#waitlist" class="btn-gold">Request an Invitation</a>
+
+      <p class="hero-tagline">
+        1495 S Platte River Drive, Denver CO &nbsp;·&nbsp; Opening Summer 2026
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       URGENCY STRIP
+       ══════════════════════════════════════ -->
+  <div class="urgency-strip" role="banner" aria-label="Founding member announcement">
+    <p>
+      Founding Member cohort — applications now open
+      <span>·</span>
+      Limited to 20 charter members
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       WAITLIST FORM
+       ══════════════════════════════════════ -->
+  <section class="section form-section" id="waitlist" aria-labelledby="form-title">
+    <div class="form-wrap">
+
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div class="section-label">Charter Membership</div>
+        <h2 class="section-title" id="form-title">Request an Invitation</h2>
+        <p class="section-sub">
+          Spaces are limited. Founding members receive priority selection,
+          preferred pricing, and first access before the public opening.
+        </p>
+      </div>
+
+      <form
+        name="waitlist"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/thank-you"
+        aria-label="Azzurro Z founding member application"
+      >
+        <!-- Honeypot -->
+        <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+          <label>Don't fill this out: <input name="bot-field" tabindex="-1" /></label>
+        </div>
+        <input type="hidden" name="form-name" value="waitlist" />
+
+        <div class="form-field">
+          <label for="name">Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name"
+            required
+            autocomplete="name"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone <span style="font-weight:300; text-transform: none; letter-spacing: 0;">(optional)</span></label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="303-000-0000"
+            autocomplete="tel"
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="collection">Tell us about your collection</label>
+          <textarea
+            id="collection"
+            name="collection"
+            rows="5"
+            placeholder="What vehicles are you considering storing? Year, make, model — and anything else you'd like us to know."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-gold" style="width: 100%; padding: 1.1rem; font-size: 0.8rem;">
+          Submit Application
+        </button>
+
+        <p class="form-disclaimer">
+          We respect your privacy. No spam — only updates about your application and the opening.
+        </p>
+      </form>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       WHY SECTION — 3 columns
+       ══════════════════════════════════════ -->
+  <section class="section" id="why" aria-labelledby="why-title" style="padding-left: 0; padding-right: 0;">
+    <div style="text-align: center; padding: 0 1.5rem; margin-bottom: 4rem;">
+      <div class="section-label">The Difference</div>
+      <h2 class="section-title" id="why-title">Why Azzurro Z</h2>
+    </div>
+
+    <div class="why-grid">
+
+      <!-- Central Location -->
+      <div class="why-card">
+        <!-- SVG: map pin / location marker -->
+        <svg class="why-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
+        </svg>
+        <h3>Central Location</h3>
+        <p>
+          Minutes from downtown Denver, Cherry Creek, and the Tech Center.
+          Closer to the urban core than any competing premium storage facility
+          in the metro — because proximity matters when passion calls.
+        </p>
+      </div>
+
+      <!-- Climate-Controlled -->
+      <div class="why-card" style="border-left: 1px solid var(--border); border-right: 1px solid var(--border);">
+        <!-- SVG: thermometer / climate control -->
+        <svg class="why-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/>
+        </svg>
+        <h3>Climate-Controlled Protection</h3>
+        <p>
+          Museum-quality temperature and humidity regulation engineered
+          specifically for vintage automobiles. Denver's dramatic seasons
+          cannot touch what's stored inside.
+        </p>
+      </div>
+
+      <!-- Curated Community -->
+      <div class="why-card">
+        <!-- SVG: people / community -->
+        <svg class="why-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
+        </svg>
+        <h3>Curated Community</h3>
+        <p>
+          A private membership of fellow enthusiasts who understand why
+          these cars matter — organized drives through Colorado's mountain
+          passes, exclusive events, and conversations worth having.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       STORY SECTION
+       ══════════════════════════════════════ -->
+  <section class="section story-section" id="story" aria-labelledby="story-title">
+    <div class="story-body">
+
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div class="section-label">Our Origin</div>
+        <h2 class="section-title" id="story-title">The Car That Started It All</h2>
+      </div>
+
+      <p>
+        It started with a single car — a 1972 Ferrari Dino 246 GTC in Azzurro blue.
+        The color is why this place exists.
+      </p>
+
+      <p>
+        I've been collecting for most of my adult life, and for years I watched exceptional
+        cars deteriorate in spaces never built to hold them. Underground garages with
+        fluctuating humidity. Facilities too far from the city to visit regularly.
+        Indifferent staff who couldn't tell a Dino from a Camry.
+      </p>
+
+      <p>
+        Azzurro Z is the facility I always wanted. Purpose-built. Climate-controlled to
+        museum standards. Close enough to downtown that you'll actually visit. And surrounded
+        by people who share the obsession.
+      </p>
+
+      <p>
+        We're opening Summer 2026 with twenty charter memberships.
+        If you know, you know.
+      </p>
+
+      <p style="color: rgba(245,245,245,0.4); font-size: 0.85rem; margin-top: 2rem; font-style: italic;">
+        — Dave Shull, Founder
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════ -->
+  <footer class="site-footer" role="contentinfo">
+
+    <div class="footer-logo">Azzurro&nbsp;<span>Z</span></div>
+
+    <address class="footer-address" style="margin-top: 1rem;">
+      1495 S Platte River Drive · Denver, CO 80223<br />
+      Opening Summer 2026
+    </address>
+
+    <div style="margin-top: 0.75rem;">
+      <a href="mailto:membership@azzurroz.com" class="footer-email">membership@azzurroz.com</a>
+    </div>
+
+    <div style="margin-top: 2rem;">
+      <a href="#waitlist" class="btn-gold" style="font-size: 0.65rem; padding: 0.75rem 2rem;">
+        Request an Invitation
       </a>
-      <!-- Desktop nav -->
-      <div class="desktop-nav flex items-center gap-8">
-        <a href="#about" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">About</a>
-        <a href="#why" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Why Us</a>
-        <a href="membership.html" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Membership</a>
-        <a href="#services" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Services</a>
-        <a href="#contact" class="btn-primary text-sm px-5 py-2.5 rounded-lg">Join Waitlist</a>
-      </div>
-      <!-- Hamburger -->
-      <button id="hamburger" class="hamburger flex flex-col gap-1.5 p-2 text-white" aria-label="Open menu" aria-expanded="false">
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-      </button>
-    </nav>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="mobile-menu px-6 pb-6 bg-navy-dark border-t border-white/10">
-      <div class="flex flex-col gap-4 pt-4">
-        <a href="#about" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">About</a>
-        <a href="#why" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Why Us</a>
-        <a href="membership.html" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Membership</a>
-        <a href="#services" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Services</a>
-        <a href="#contact" class="btn-primary text-center text-sm py-3 rounded-lg mt-2">Join Waitlist</a>
-      </div>
     </div>
-  </header>
 
-  <main>
+    <p class="footer-copy">
+      &copy; 2026 Azzurro Z &nbsp;·&nbsp; Denver's Collector Car Sanctuary &nbsp;·&nbsp; All rights reserved
+    </p>
 
-    <!-- HERO -->
-    <section class="relative min-h-screen flex items-center justify-center hero-pattern" aria-label="Azzurro Z — luxury vintage car storage in Denver">
-      <!-- PHOTO: hero background — replace hero-pattern with real photo -->
-      <!-- <div class="absolute inset-0 bg-cover bg-center" style="background-image:url('/images/hero-bg.jpg')"></div> -->
-      <div class="absolute inset-0 bg-gradient-to-b from-navy-deep/80 via-navy-dark/70 to-navy-dark"></div>
-      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <p class="text-xs tracking-[0.4em] uppercase text-az-silver font-medium mb-6">Premium Vintage Car Storage · Denver, CO</p>
-        <h1 class="hero-title text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-          Denver's Premier<br /><span class="text-az-silver">Vintage Car Storage</span>
-        </h1>
-        <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Azzurro Z is a membership-based, climate-controlled sanctuary for classic and exotic car collectors in central Denver. Museum-quality protection, concierge services, and a curated community of enthusiasts — all just minutes from downtown.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="#contact" class="btn-primary">Join Our Waitlist</a>
-          <a href="membership.html" class="btn-outline">View Membership Tiers</a>
-        </div>
-        <p class="mt-10 text-xs tracking-[0.3em] uppercase text-az-silver">Opening Summer 2026 · 1495 S Platte River Drive, Denver</p>
-      </div>
-      <!-- Scroll indicator -->
-      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-az-silver">
-        <span class="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-        <div class="w-px h-8 bg-gradient-to-b from-az-silver/50 to-transparent"></div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="py-24 bg-white" aria-label="About Azzurro Z">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-2 gap-16 items-center">
-          <article>
-            <p class="section-label">Our Story</p>
-            <h2 class="section-title mb-8">A Sanctuary Born<br />from Passion</h2>
-            <div class="space-y-5 text-gray-600 text-lg leading-relaxed">
-              <p><strong>Azzurro Z</strong> is a luxury vintage car storage facility in central Denver, Colorado. More than a warehouse, it's a celebration of classic car culture — named after the iconic <em>Azzurro</em> blue of a <strong>1972 Dino 246 GTC</strong>, the car that inspired everything.</p>
-              <p>Located at <strong>1495 S Platte River Drive, Denver, CO 80223</strong>, Azzurro Z is closer to downtown than any competing storage facility. Our climate-controlled warehouse provides museum-quality protection for your collection, while our community of fellow enthusiasts ensures your cars are stored among friends who share your passion.</p>
-              <p>Founded by Dave Shull, a lifelong collector who wanted a better option for storing his own vintage sports cars, Azzurro Z was built for collectors who value convenience, care, and community.</p>
-            </div>
-            <div class="mt-8">
-              <span class="inline-block px-6 py-3 rounded-lg font-semibold text-white bg-az-blue text-sm tracking-wide">Opening Summer 2026</span>
-            </div>
-          </article>
-          <div class="relative">
-            <!-- PHOTO: 1972 Dino 246 GTC in Azzurro blue — the car that inspired the brand -->
-            <div class="aspect-[4/3] rounded-xl bg-gradient-to-br from-navy-deep to-az-blue flex items-center justify-center text-white/20 text-sm text-center p-8">
-              <!-- Replace with: <img src="/images/dino-246-gtc.jpg" alt="1972 Dino 246 GTC in Azzurro blue — the car that inspired Azzurro Z" class="w-full h-full object-cover rounded-xl" /> -->
-              <span>1972 Dino 246 GTC<br/>Photo Coming Soon</span>
-            </div>
-            <div class="absolute -bottom-4 -right-4 w-full h-full rounded-xl -z-10 border-4 border-az-blue"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY AZZURRO Z -->
-    <section id="why" class="py-24 bg-gray-50" aria-label="Why choose Azzurro Z">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="section-label">Why Choose Azzurro Z</p>
-          <h2 class="section-title">The Best Vintage Car<br />Storage in Denver</h2>
-          <p class="text-gray-500 text-lg mt-4 max-w-2xl mx-auto">Five reasons collectors choose Azzurro Z over generic storage</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Card 1 -->
-          <article class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition border-t-4 border-az-blue">
-            <div class="text-az-blue mb-4">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-navy-deep mb-3">Central Denver Location</h3>
-            <p class="text-gray-600 leading-relaxed">Just minutes from downtown at 1495 S Platte River Drive. No other luxury car storage facility in the Denver metro is this close to where you live, work, and drive.</p>
-          </article>
-          <!-- Card 2 -->
-          <article class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition border-t-4 border-az-blue">
-            <div class="text-az-blue mb-4">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-navy-deep mb-3">Climate-Controlled Protection</h3>
-            <p class="text-gray-600 leading-relaxed">Museum-quality temperature and humidity regulation designed for vintage sports cars. Protects paint, leather, rubber seals, and mechanicals from Colorado's extreme temperature swings.</p>
-          </article>
-          <!-- Card 3 -->
-          <article class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition border-t-4 border-az-blue">
-            <div class="text-az-blue mb-4">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-navy-deep mb-3">Curated Collector Community</h3>
-            <p class="text-gray-600 leading-relaxed">A private, membership-based facility — not a generic storage unit. Store your cars alongside fellow enthusiasts who share your passion for classic automotive culture.</p>
-          </article>
-          <!-- Card 4 -->
-          <article class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition border-t-4 border-az-blue">
-            <div class="text-az-blue mb-4">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75a4.5 4.5 0 01-4.884 4.484c-1.076-.091-2.264.071-2.95.904l-7.152 8.684a2.548 2.548 0 11-3.586-3.586l8.684-7.152c.833-.686.995-1.874.904-2.95a4.5 4.5 0 016.336-4.486l-3.276 3.276a3.004 3.004 0 002.25 2.25l3.276-3.276c.256.565.398 1.192.398 1.852z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-navy-deep mb-3">Meticulous Vehicle Care</h3>
-            <p class="text-gray-600 leading-relaxed">Every vehicle receives battery tending, monthly startups, and optional pre- and post-trip preparation. Your classic stays ready to drive at a moment's notice.</p>
-          </article>
-          <!-- Card 5 -->
-          <article class="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition border-t-4 border-az-blue">
-            <div class="text-az-blue mb-4">
-              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-navy-deep mb-3">24/7 Security & Surveillance</h3>
-            <p class="text-gray-600 leading-relaxed">Advanced security systems, surveillance cameras, and controlled access protect your investment around the clock. Higher-tier members get 24/7 live feeds of their vehicles.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- MEMBERSHIP PREVIEW -->
-    <section id="membership" class="py-24 bg-navy-deep" aria-label="Membership tiers">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="text-xs tracking-[0.4em] uppercase text-az-silver font-medium mb-3">Membership</p>
-          <h2 class="section-title-light mb-4">Choose Your Tier</h2>
-          <p class="text-gray-400 text-lg max-w-xl mx-auto">All memberships include climate-controlled storage, 24/7 security, and community events.</p>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-          <!-- Dino -->
-          <article class="tier-card bg-navy-dark p-8 rounded-xl border border-white/10">
-            <p class="text-xs tracking-[0.25em] uppercase text-az-silver font-medium mb-2">Entry</p>
-            <h3 class="text-2xl font-bold text-white mb-1">Dino</h3>
-            <div class="text-3xl font-extrabold text-white mb-6">$400<span class="text-base font-normal text-gray-400">/mo</span></div>
-            <ul class="check-list list-none p-0 mb-8 space-y-2">
-              <li>Climate-controlled assigned space</li>
-              <li>24/7 security surveillance</li>
-              <li>Battery tender</li>
-              <li>Monthly vehicle startup</li>
-              <li>Member lounge access</li>
-            </ul>
-            <a href="#contact" class="btn-outline w-full text-center block py-3 rounded-lg text-sm">Join Waitlist</a>
-          </article>
-          <!-- GTC (featured) -->
-          <article class="tier-card featured bg-navy-dark p-8 rounded-xl mt-4 md:mt-0">
-            <p class="text-xs tracking-[0.25em] uppercase text-az-silver font-medium mb-2">Premium</p>
-            <h3 class="text-2xl font-bold text-white mb-1">GTC</h3>
-            <div class="text-3xl font-extrabold text-white mb-6">$500<span class="text-base font-normal text-gray-400">/mo</span></div>
-            <ul class="check-list list-none p-0 mb-8 space-y-2">
-              <li>Everything in Dino</li>
-              <li>24/7 member access</li>
-              <li>Premium 10-foot wide space</li>
-              <li>Pre-trip vehicle preparation</li>
-              <li>Post-trip rinse</li>
-              <li>Concierge service</li>
-            </ul>
-            <a href="#contact" class="btn-primary w-full text-center block py-3 rounded-lg text-sm">Join Waitlist</a>
-          </article>
-          <!-- Classiche -->
-          <article class="tier-card bg-navy-dark p-8 rounded-xl border border-white/10">
-            <p class="text-xs tracking-[0.25em] uppercase text-az-silver font-medium mb-2">Elite</p>
-            <h3 class="text-2xl font-bold text-white mb-1">Classiche</h3>
-            <div class="text-3xl font-extrabold text-white mb-6">$600<span class="text-base font-normal text-gray-400">/mo</span></div>
-            <ul class="check-list list-none p-0 mb-8 space-y-2">
-              <li>Everything in GTC</li>
-              <li>Dedicated premium space</li>
-              <li>24/7 live video feed</li>
-              <li>Complimentary concierge</li>
-              <li>Monthly inspection report</li>
-              <li>VIP events</li>
-            </ul>
-            <a href="#contact" class="btn-outline w-full text-center block py-3 rounded-lg text-sm">Join Waitlist</a>
-          </article>
-        </div>
-        <p class="text-center mt-8">
-          <a href="membership.html" class="text-az-silver hover:text-white text-sm underline underline-offset-4 transition-colors">View full membership details →</a>
-        </p>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services" class="py-24 bg-white" aria-label="Services">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="section-label">Our Services</p>
-          <h2 class="section-title">Comprehensive Care<br />for Classic Cars</h2>
-          <p class="text-gray-500 text-lg mt-4 max-w-2xl mx-auto">Beyond storage — full-service vehicle care designed for serious vintage car collectors in the Denver area.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-          <article class="flex items-start gap-4 p-6 rounded-xl hover:bg-gray-50 transition">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-az-blue flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-navy-deep mb-2">Battery Tending & Monthly Startups</h3>
-              <p class="text-gray-600">Continuous battery tending and monthly engine startups keep your classic mechanically sound and ready to drive.</p>
-            </div>
-          </article>
-          <article class="flex items-start gap-4 p-6 rounded-xl hover:bg-gray-50 transition">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-az-blue flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-navy-deep mb-2">Pre & Post-Trip Preparation</h3>
-              <p class="text-gray-600">We prep your car before pickup — tire pressure, fluid check, warm-up — and provide a spot-free rinse when you return.</p>
-            </div>
-          </article>
-          <article class="flex items-start gap-4 p-6 rounded-xl hover:bg-gray-50 transition">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-az-blue flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" /></svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-navy-deep mb-2">Concierge Services</h3>
-              <p class="text-gray-600">From scheduling maintenance with trusted Denver mechanics to coordinating detailing — we handle logistics so you can focus on driving.</p>
-            </div>
-          </article>
-          <article class="flex items-start gap-4 p-6 rounded-xl hover:bg-gray-50 transition">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-az-blue flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" /></svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-navy-deep mb-2">Community Events & Drives</h3>
-              <p class="text-gray-600">Regular gatherings, group drives through the Colorado mountains, and exclusive experiences for Azzurro Z members.</p>
-            </div>
-          </article>
-          <article class="flex items-start gap-4 p-6 rounded-xl hover:bg-gray-50 transition">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-az-blue flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" /></svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-navy-deep mb-2">Wash Bay Access</h3>
-              <p class="text-gray-600">Dedicated on-site wash bay for premium members — perfect for detailing before a show or a quick rinse after a mountain drive.</p>
-            </div>
-          </article>
-          <article class="flex items-start gap-4 p-6 rounded-xl hover:bg-gray-50 transition">
-            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-az-blue flex items-center justify-center text-white">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-navy-deep mb-2">24/7 Live Surveillance (Classiche)</h3>
-              <p class="text-gray-600">Classiche members get a dedicated 24/7 live feed of their vehicle — peace of mind wherever you are in the world.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="py-24 bg-gray-50" aria-label="Frequently asked questions">
-      <div class="max-w-3xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <p class="section-label">FAQ</p>
-          <h2 class="section-title">Common Questions</h2>
-        </div>
-        <div class="space-y-3">
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition" aria-expanded="false">
-              <h3 class="font-semibold text-navy-deep pr-4">Where is Azzurro Z located?</h3>
-              <svg class="w-5 h-5 flex-shrink-0 text-az-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer px-6 pb-0">
-              <p class="text-gray-600 pb-5">Azzurro Z is located at <strong>1495 S Platte River Drive, Denver, CO 80223</strong> — just minutes from downtown, closer than any other luxury car storage facility in the area.</p>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition" aria-expanded="false">
-              <h3 class="font-semibold text-navy-deep pr-4">How much does vintage car storage cost at Azzurro Z?</h3>
-              <svg class="w-5 h-5 flex-shrink-0 text-az-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer px-6 pb-0">
-              <p class="text-gray-600 pb-5">Three membership tiers: <strong>Dino ($400/month)</strong>, <strong>GTC ($500/month)</strong>, and <strong>Classiche ($600/month)</strong>. All include climate-controlled storage, 24/7 security, battery tending, and community events. <a href="membership.html" class="text-az-blue underline">View full details →</a></p>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition" aria-expanded="false">
-              <h3 class="font-semibold text-navy-deep pr-4">When does Azzurro Z open?</h3>
-              <svg class="w-5 h-5 flex-shrink-0 text-az-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer px-6 pb-0">
-              <p class="text-gray-600 pb-5">Azzurro Z is opening <strong>Summer 2026</strong>. Join the waitlist now to secure your space.</p>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition" aria-expanded="false">
-              <h3 class="font-semibold text-navy-deep pr-4">Is Azzurro Z climate-controlled?</h3>
-              <svg class="w-5 h-5 flex-shrink-0 text-az-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer px-6 pb-0">
-              <p class="text-gray-600 pb-5">Yes — museum-quality, climate-controlled storage with temperature and humidity regulation designed specifically for vintage and classic sports cars. Colorado's temperature swings won't touch your collection.</p>
-            </div>
-          </div>
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <button class="faq-toggle w-full text-left px-6 py-5 flex items-center justify-between hover:bg-gray-50 transition" aria-expanded="false">
-              <h3 class="font-semibold text-navy-deep pr-4">What services does Azzurro Z offer beyond storage?</h3>
-              <svg class="w-5 h-5 flex-shrink-0 text-az-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-            </button>
-            <div class="faq-answer px-6 pb-0">
-              <p class="text-gray-600 pb-5">Battery tending, monthly vehicle startups, pre- and post-trip preparation, concierge services, wash bay access, and exclusive community events and drives through the Colorado mountains.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT / WAITLIST -->
-    <section id="contact" class="py-24 bg-navy-deep" aria-label="Join the Azzurro Z waitlist">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-12">
-          <p class="text-xs tracking-[0.4em] uppercase text-az-silver font-medium mb-3">Get Started</p>
-          <h2 class="section-title-light mb-4">Reserve Your Space</h2>
-          <p class="text-gray-300 text-lg max-w-xl mx-auto">Join the waitlist now to secure climate-controlled vintage car storage in central Denver when we open Summer 2026.</p>
-        </div>
-        <div class="grid md:grid-cols-2 gap-12">
-          <!-- Address block -->
-          <div>
-            <h3 class="text-lg font-bold text-az-silver mb-4">Find Azzurro Z</h3>
-            <address class="not-italic text-gray-300 space-y-2 mb-6">
-              <p class="font-semibold text-white">Azzurro Z LLC</p>
-              <p>1495 S Platte River Drive</p>
-              <p>Denver, CO 80223</p>
-            </address>
-            <p class="text-gray-400 text-sm">Closer to downtown than any competitor — because your time behind the wheel matters more than time driving to storage.</p>
-            <div class="mt-8 space-y-3">
-              <div class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-az-blue">✓</span> Opening Summer 2026</div>
-              <div class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-az-blue">✓</span> Limited founding member spots</div>
-              <div class="flex items-center gap-3 text-gray-300 text-sm"><span class="text-az-blue">✓</span> Priority access for waitlist members</div>
-            </div>
-          </div>
-          <!-- Netlify Form -->
-          <div class="bg-white/8 backdrop-blur rounded-xl border border-white/10 p-8">
-            <form id="waitlist-form" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-              <input type="hidden" name="form-name" value="waitlist" />
-              <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
-              <div class="space-y-5">
-                <div>
-                  <label for="name">Name</label>
-                  <input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name" />
-                </div>
-                <div>
-                  <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required placeholder="your@email.com" autocomplete="email" />
-                </div>
-                <div>
-                  <label for="collection">Tell us about your collection</label>
-                  <textarea id="collection" name="collection" rows="4" placeholder="How many vehicles? What makes / models? Any specific needs?"></textarea>
-                </div>
-                <button type="submit" class="btn-primary w-full py-4 rounded-lg text-sm font-bold tracking-widest uppercase">Reserve Your Space</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-navy-dark border-t border-white/5 py-12" role="contentinfo">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-8 mb-10">
-        <div class="md:col-span-2">
-          <!-- LOGO: Replace with img tag when logo asset is available -->
-          <span class="text-lg font-bold tracking-widest text-white uppercase">Azzurro Z</span>
-          <p class="text-sm text-gray-400 mt-3 max-w-sm leading-relaxed">Denver's premier vintage car storage facility. Climate-controlled, membership-based, community-driven. Opening Summer 2026.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <h4 class="text-xs tracking-[0.25em] uppercase text-white/60 font-medium mb-4">Quick Links</h4>
-          <div class="space-y-2">
-            <a href="#about" class="block text-sm text-gray-400 hover:text-white transition-colors">About Azzurro Z</a>
-            <a href="#why" class="block text-sm text-gray-400 hover:text-white transition-colors">Why Choose Us</a>
-            <a href="membership.html" class="block text-sm text-gray-400 hover:text-white transition-colors">Membership & Pricing</a>
-            <a href="#services" class="block text-sm text-gray-400 hover:text-white transition-colors">Services</a>
-            <a href="#faq" class="block text-sm text-gray-400 hover:text-white transition-colors">FAQ</a>
-            <a href="#contact" class="block text-sm text-gray-400 hover:text-white transition-colors">Join Waitlist</a>
-          </div>
-        </nav>
-        <div>
-          <h4 class="text-xs tracking-[0.25em] uppercase text-white/60 font-medium mb-4">Location</h4>
-          <address class="not-italic text-sm text-gray-400 space-y-1">
-            <p class="text-white font-medium">Azzurro Z LLC</p>
-            <p>1495 S Platte River Drive</p>
-            <p>Denver, CO 80223</p>
-            <p class="mt-3">Opening Summer 2026</p>
-          </address>
-        </div>
-      </div>
-      <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-        <p>© 2026 Azzurro Z LLC. All rights reserved. Luxury vintage car storage in Denver, Colorado.</p>
-        <p>A Delta Zulu LLC company</p>
-      </div>
-    </div>
   </footer>
 
-  <script src="js/main.js"></script>
 </body>
 </html>

@@ -3,183 +3,564 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Membership & Pricing | Azzurro Z — Luxury Vintage Car Storage Denver</title>
-  <meta name="description" content="Azzurro Z membership tiers: Dino ($400/mo), GTC ($500/mo), Classiche ($600/mo). Climate-controlled vintage car storage in central Denver. Opening Summer 2026." />
+  <title>Membership Tiers — Azzurro Z Denver Vintage Car Storage</title>
+  <meta name="description" content="Compare Azzurro Z membership tiers: Dino ($400/mo), GTC ($500/mo), and Classiche ($600/mo). Climate-controlled vintage car storage in Denver, CO. Opening Summer 2026." />
   <link rel="canonical" href="https://www.azzurroz.com/membership" />
-  <meta property="og:title" content="Membership & Pricing | Azzurro Z" />
-  <meta property="og:url" content="https://www.azzurroz.com/membership" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.azzurroz.com/membership" />
+  <meta property="og:title"       content="Membership Tiers — Azzurro Z Denver Vintage Car Storage" />
+  <meta property="og:description" content="Three membership tiers for Denver's premier vintage car storage facility. From $400/month. Opening Summer 2026." />
+  <meta property="og:site_name"   content="Azzurro Z" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"  content="summary_large_image" />
+  <meta name="twitter:title" content="Membership Tiers — Azzurro Z" />
+
+  <!-- Tailwind CSS CDN v3 -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: { colors: { 'navy-deep': '#0F3A5E', 'navy-dark': '#0A2A42', 'az-blue': '#2B7AB5', 'az-silver': '#C0C0C0' } } }
-    }
-  </script>
+
+  <!-- Brand styles -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="bg-white text-gray-800">
 
-  <!-- HEADER -->
-  <header class="sticky top-0 z-50 bg-navy-dark shadow-lg">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main navigation">
-      <a href="/" class="text-xl font-bold tracking-widest text-white uppercase" aria-label="Azzurro Z — Home">Azzurro Z</a>
-      <div class="desktop-nav flex items-center gap-8">
-        <a href="/#about" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">About</a>
-        <a href="/#why" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Why Us</a>
-        <a href="membership.html" class="text-sm tracking-widest uppercase text-white font-semibold">Membership</a>
-        <a href="/#services" class="text-sm tracking-widest uppercase text-az-silver hover:text-white transition-colors">Services</a>
-        <a href="/#contact" class="btn-primary text-sm px-5 py-2.5 rounded-lg">Join Waitlist</a>
-      </div>
-      <button id="hamburger" class="hamburger flex flex-col gap-1.5 p-2 text-white" aria-label="Open menu" aria-expanded="false">
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-      </button>
-    </nav>
-    <div id="mobile-menu" class="mobile-menu px-6 pb-6 bg-navy-dark border-t border-white/10">
-      <div class="flex flex-col gap-4 pt-4">
-        <a href="/#about" class="text-sm tracking-widest uppercase text-az-silver">About</a>
-        <a href="/#why" class="text-sm tracking-widest uppercase text-az-silver">Why Us</a>
-        <a href="membership.html" class="text-sm tracking-widest uppercase text-white font-semibold">Membership</a>
-        <a href="/#services" class="text-sm tracking-widest uppercase text-az-silver">Services</a>
-        <a href="/#contact" class="btn-primary text-center text-sm py-3 rounded-lg mt-2">Join Waitlist</a>
-      </div>
+<body>
+
+  <!-- =====================================================
+       HEADER / NAV
+       ===================================================== -->
+  <header id="site-header" class="site-header" role="banner">
+    <div class="max-w-6xl mx-auto px-6">
+      <nav class="flex items-center justify-between py-4" aria-label="Primary navigation">
+
+        <a href="/" class="logo-text" aria-label="Azzurro Z — Home">
+          Azzurro&nbsp;<span class="logo-accent">Z</span>
+        </a>
+
+        <ul class="desktop-nav flex items-center gap-8 list-none m-0 p-0" role="list">
+          <li><a href="/#about"         class="nav-link">About</a></li>
+          <li><a href="/#why"           class="nav-link">Why Azzurro Z</a></li>
+          <li><a href="membership.html" class="nav-link" aria-current="page">Membership</a></li>
+          <li><a href="/#services"      class="nav-link">Services</a></li>
+          <li>
+            <a href="/#waitlist" class="btn-cta-nav" aria-label="Join the Azzurro Z waitlist">
+              Join Waitlist
+            </a>
+          </li>
+        </ul>
+
+        <button
+          id="hamburger"
+          class="hamburger"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+          <span class="ham-line"></span>
+        </button>
+      </nav>
+
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+        <div class="flex flex-col gap-1 pb-5 pt-1 border-t border-blue-900">
+          <a href="/#about"         class="mob-link">About</a>
+          <a href="/#why"           class="mob-link">Why Azzurro Z</a>
+          <a href="membership.html" class="mob-link">Membership</a>
+          <a href="/#services"      class="mob-link">Services</a>
+          <a href="/#faq"           class="mob-link">FAQ</a>
+          <a href="/#waitlist" class="btn-cta-nav mt-3 text-center">Join Waitlist</a>
+        </div>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- Page Hero -->
-    <section class="bg-navy-deep py-20 text-center hero-pattern">
-      <div class="max-w-3xl mx-auto px-6">
-        <p class="text-xs tracking-[0.4em] uppercase text-az-silver font-medium mb-4">Membership & Pricing</p>
-        <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Choose Your Tier</h1>
-        <p class="text-lg text-gray-300 max-w-xl mx-auto">All memberships include climate-controlled storage, 24/7 security, battery tending, and access to the Azzurro Z community. Opening Summer 2026.</p>
+
+    <!-- =====================================================
+         PAGE HERO
+         ===================================================== -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="page-hero-content max-w-3xl mx-auto">
+        <div class="section-label mb-3">Membership &amp; Pricing</div>
+        <h1 class="section-title-light" id="page-title"
+            style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:1.25rem;">
+          Choose Your Tier
+        </h1>
+        <p class="section-sub-light mx-auto">
+          Every Azzurro Z membership includes climate-controlled storage, 24/7 security,
+          battery tending, and access to our collector community. Higher tiers add the
+          convenience, space, and white-glove service your collection deserves.
+        </p>
+        <p style="margin-top:1.5rem;font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--blue-mid);">
+          Opening Summer 2026 &mdash; Join the Waitlist to Secure Your Space
+        </p>
       </div>
     </section>
 
-    <!-- Pricing Cards -->
-    <section class="py-20 bg-gray-50" aria-label="Membership tiers and pricing">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="grid md:grid-cols-3 gap-8 mb-16">
+    <!-- =====================================================
+         TIER CARDS — DETAILED VIEW
+         ===================================================== -->
+    <section class="section-darker" aria-labelledby="tiers-heading">
+      <div class="max-w-6xl mx-auto px-6 py-20">
+        <h2 class="sr-only" id="tiers-heading">Membership Tier Details</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
           <!-- Dino -->
-          <article class="tier-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div class="bg-navy-dark p-8 text-center">
-              <p class="text-xs tracking-[0.25em] uppercase text-az-silver font-medium mb-2">Entry</p>
-              <h2 class="text-3xl font-extrabold text-white mb-1">Dino</h2>
-              <div class="text-5xl font-extrabold text-white mt-4">$400<span class="text-lg font-normal text-gray-400">/mo</span></div>
-              <p class="text-gray-400 text-sm mt-2">per vehicle</p>
-            </div>
-            <div class="p-8">
-              <ul class="check-list list-none p-0 space-y-3 mb-8">
-                <li>Climate-controlled assigned space</li>
-                <li>24/7 security surveillance</li>
-                <li>Battery tender included</li>
-                <li>Monthly vehicle startup</li>
-                <li>Member lounge access</li>
-                <li>Community event invitations</li>
-              </ul>
-              <a href="/#contact" class="btn-outline w-full text-center block py-3.5 rounded-xl text-sm border-navy-deep text-navy-deep hover:bg-navy-deep hover:text-white">Join Waitlist — Dino</a>
-            </div>
-          </article>
+          <div class="tier-card"
+               style="background:rgba(10,42,66,0.7);border:1px solid rgba(43,122,181,0.25);border-radius:8px;padding:2rem;display:flex;flex-direction:column;">
+            <div class="tier-name">Dino</div>
+            <div class="tier-sub">Entry Membership</div>
+            <div class="tier-price">$400<span class="tier-mo"> / month</span></div>
+            <div class="tier-divider"></div>
+
+            <div class="tier-section-label">Core Inclusions</div>
+            <ul class="check-list" style="margin-bottom:1.5rem;">
+              <li>Climate-controlled assigned parking space</li>
+              <li>24/7 multi-layer security &amp; surveillance</li>
+              <li>Smart battery tender service</li>
+              <li>Monthly vehicle startup &amp; idle</li>
+              <li>Member lounge access</li>
+              <li>Community events &amp; organized drives</li>
+            </ul>
+
+            <div class="tier-section-label">Space Details</div>
+            <ul class="check-list" style="margin-bottom:1.5rem;">
+              <li>Standard assigned space</li>
+              <li>Overhead lighting</li>
+              <li>Epoxy-coated floor</li>
+            </ul>
+
+            <div class="tier-section-label">Access</div>
+            <ul class="check-list" style="margin-bottom:2rem;flex:1;">
+              <li>Staffed-hours facility access</li>
+              <li>1 authorized guest</li>
+            </ul>
+
+            <a class="btn-outline" href="/#waitlist" style="text-align:center;"
+               aria-label="Join waitlist for Dino tier">
+              Join Waitlist — Dino
+            </a>
+          </div>
 
           <!-- GTC (featured) -->
-          <article class="tier-card featured bg-white rounded-2xl shadow-xl overflow-hidden" style="border:2px solid #2B7AB5">
-            <div class="bg-az-blue p-8 text-center">
-              <p class="text-xs tracking-[0.25em] uppercase text-white/70 font-medium mb-2">Most Popular</p>
-              <h2 class="text-3xl font-extrabold text-white mb-1">GTC</h2>
-              <div class="text-5xl font-extrabold text-white mt-4">$500<span class="text-lg font-normal text-white/60">/mo</span></div>
-              <p class="text-white/60 text-sm mt-2">per vehicle</p>
-            </div>
-            <div class="p-8">
-              <ul class="check-list list-none p-0 space-y-3 mb-8">
-                <li>Everything in Dino</li>
-                <li>24/7 member access (keycard)</li>
-                <li>Premium 10-foot wide space</li>
-                <li>Pre-trip vehicle preparation</li>
-                <li>Post-trip spot-free rinse</li>
-                <li>Concierge service</li>
-                <li>Priority event seating</li>
-              </ul>
-              <a href="/#contact" class="btn-primary w-full text-center block py-3.5 rounded-xl text-sm">Join Waitlist — GTC</a>
-            </div>
-          </article>
+          <div class="tier-card featured"
+               style="background:rgba(10,42,66,0.9);border-radius:8px;padding:2rem;padding-top:2.75rem;display:flex;flex-direction:column;">
+            <div class="tier-name">GTC</div>
+            <div class="tier-sub">Premium Membership</div>
+            <div class="tier-price">$500<span class="tier-mo"> / month</span></div>
+            <div class="tier-divider"></div>
+
+            <div class="tier-section-label">Everything in Dino, Plus</div>
+            <ul class="check-list" style="margin-bottom:1.5rem;">
+              <li>24/7 unrestricted keycard access</li>
+              <li>Premium 10-foot wide dedicated space</li>
+              <li>Pre-trip preparation service</li>
+              <li>Post-trip spot-free rinse &amp; wipe-down</li>
+              <li>Concierge service (coordination &amp; scheduling)</li>
+            </ul>
+
+            <div class="tier-section-label">Space Details</div>
+            <ul class="check-list" style="margin-bottom:1.5rem;">
+              <li>Premium 10-foot wide space</li>
+              <li>Enhanced overhead lighting</li>
+              <li>Epoxy floor with detail marking</li>
+            </ul>
+
+            <div class="tier-section-label">Access</div>
+            <ul class="check-list" style="margin-bottom:2rem;flex:1;">
+              <li>24/7 keycard facility access</li>
+              <li>2 authorized guests</li>
+            </ul>
+
+            <a class="btn-primary" href="/#waitlist" style="text-align:center;"
+               aria-label="Join waitlist for GTC tier">
+              Join Waitlist — GTC
+            </a>
+          </div>
 
           <!-- Classiche -->
-          <article class="tier-card bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-            <div class="bg-navy-deep p-8 text-center">
-              <p class="text-xs tracking-[0.25em] uppercase text-az-silver font-medium mb-2">Elite</p>
-              <h2 class="text-3xl font-extrabold text-white mb-1">Classiche</h2>
-              <div class="text-5xl font-extrabold text-white mt-4">$600<span class="text-lg font-normal text-gray-400">/mo</span></div>
-              <p class="text-gray-400 text-sm mt-2">per vehicle</p>
-            </div>
-            <div class="p-8">
-              <ul class="check-list list-none p-0 space-y-3 mb-8">
-                <li>Everything in GTC</li>
-                <li>Dedicated premium space</li>
-                <li>24/7 live video feed</li>
-                <li>Complimentary concierge</li>
-                <li>Monthly inspection report</li>
-                <li>VIP event access</li>
-                <li>First priority for new spaces</li>
-              </ul>
-              <a href="/#contact" class="btn-outline w-full text-center block py-3.5 rounded-xl text-sm border-navy-deep text-navy-deep hover:bg-navy-deep hover:text-white">Join Waitlist — Classiche</a>
-            </div>
-          </article>
-        </div>
+          <div class="tier-card"
+               style="background:rgba(10,42,66,0.7);border:1px solid rgba(43,122,181,0.25);border-radius:8px;padding:2rem;display:flex;flex-direction:column;">
+            <div class="tier-name">Classiche</div>
+            <div class="tier-sub">Ultimate Membership</div>
+            <div class="tier-price">$600<span class="tier-mo"> / month</span></div>
+            <div class="tier-divider"></div>
 
-        <!-- Feature comparison table -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-          <div class="p-8 border-b border-gray-100">
-            <h2 class="text-2xl font-bold text-navy-deep">Full Feature Comparison</h2>
+            <div class="tier-section-label">Everything in GTC, Plus</div>
+            <ul class="check-list" style="margin-bottom:1.5rem;">
+              <li>Dedicated premium corner bay</li>
+              <li>Private 24/7 live camera feed (mobile app)</li>
+              <li>Complimentary concierge — all services included</li>
+              <li>Monthly vehicle inspection report</li>
+              <li>VIP invitations to exclusive events &amp; private drives</li>
+            </ul>
+
+            <div class="tier-section-label">Space Details</div>
+            <ul class="check-list" style="margin-bottom:1.5rem;">
+              <li>Premium dedicated corner bay</li>
+              <li>Display-quality lighting</li>
+              <li>Private camera mount included</li>
+            </ul>
+
+            <div class="tier-section-label">Access</div>
+            <ul class="check-list" style="margin-bottom:2rem;flex:1;">
+              <li>24/7 priority keycard access</li>
+              <li>4 authorized guests</li>
+            </ul>
+
+            <a class="btn-outline" href="/#waitlist" style="text-align:center;"
+               aria-label="Join waitlist for Classiche tier">
+              Join Waitlist — Classiche
+            </a>
           </div>
-          <div class="overflow-x-auto">
-            <table class="w-full text-sm">
-              <thead>
-                <tr class="border-b border-gray-100">
-                  <th class="text-left p-4 font-semibold text-gray-500 w-1/2">Feature</th>
-                  <th class="p-4 text-center font-bold text-navy-deep">Dino<br/><span class="font-normal text-gray-400">$400/mo</span></th>
-                  <th class="p-4 text-center font-bold text-az-blue bg-blue-50">GTC<br/><span class="font-normal text-gray-400">$500/mo</span></th>
-                  <th class="p-4 text-center font-bold text-navy-deep">Classiche<br/><span class="font-normal text-gray-400">$600/mo</span></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Climate-controlled storage</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">24/7 security surveillance</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Battery tender</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Monthly vehicle startup</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Member lounge access</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Community events</td><td class="p-4 text-center text-green-500 font-bold">✓</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">24/7 keycard access</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Premium 10-foot wide space</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Pre-trip vehicle preparation</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Post-trip spot-free rinse</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-green-500 font-bold bg-blue-50">✓</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">Concierge service</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-500 text-xs bg-blue-50">Add-on</td><td class="p-4 text-center text-green-500 font-bold">✓ Included</td></tr>
-                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Dedicated premium space</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50"><td class="p-4 text-gray-700">24/7 live video feed</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr class="border-b border-gray-50 bg-gray-50"><td class="p-4 text-gray-700">Monthly inspection report</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-                <tr><td class="p-4 text-gray-700">VIP event access</td><td class="p-4 text-center text-gray-300">—</td><td class="p-4 text-center text-gray-300 bg-blue-50">—</td><td class="p-4 text-center text-green-500 font-bold">✓</td></tr>
-              </tbody>
-            </table>
-          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="py-20 bg-navy-deep text-center hero-pattern">
-      <div class="max-w-2xl mx-auto px-6">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Ready to Secure Your Space?</h2>
-        <p class="text-gray-300 text-lg mb-8">Limited founding member spots available. Join the waitlist now to be first in line when we open Summer 2026.</p>
-        <a href="/#contact" class="btn-primary text-base px-10 py-4 rounded-xl">Join the Waitlist</a>
+    <!-- =====================================================
+         FULL COMPARISON TABLE
+         ===================================================== -->
+    <section class="section-dark" aria-labelledby="comparison-heading">
+      <div class="max-w-5xl mx-auto px-6 py-20">
+
+        <div class="text-center mb-12">
+          <div class="section-label">Side by Side</div>
+          <h2 class="section-title-light" id="comparison-heading">Full Feature Comparison</h2>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="comparison-table" aria-label="Membership tier feature comparison">
+            <thead>
+              <tr>
+                <th class="feature-col" scope="col">Feature</th>
+                <th scope="col">
+                  Dino<br />
+                  <span style="font-size:0.8rem;font-weight:400;color:rgba(192,192,192,0.5);">$400/mo</span>
+                </th>
+                <th scope="col" style="color:var(--blue-mid);">
+                  GTC<br />
+                  <span style="font-size:0.8rem;font-weight:400;color:rgba(192,192,192,0.5);">$500/mo</span>
+                </th>
+                <th scope="col">
+                  Classiche<br />
+                  <span style="font-size:0.8rem;font-weight:400;color:rgba(192,192,192,0.5);">$600/mo</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="cat-row"><td colspan="4">Storage &amp; Space</td></tr>
+              <tr>
+                <td class="feature-col">Climate-controlled space</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Assigned dedicated space</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Space width</td>
+                <td>Standard</td>
+                <td>10-ft premium</td>
+                <td>Corner bay</td>
+              </tr>
+              <tr>
+                <td class="feature-col">Display-quality lighting</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+
+              <tr class="cat-row"><td colspan="4">Security &amp; Monitoring</td></tr>
+              <tr>
+                <td class="feature-col">24/7 security &amp; surveillance</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Controlled access entry</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Private 24/7 live camera feed (mobile)</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+
+              <tr class="cat-row"><td colspan="4">Member Access</td></tr>
+              <tr>
+                <td class="feature-col">Staffed-hours access</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">24/7 keycard access</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Member lounge</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Authorized guests</td>
+                <td>1</td>
+                <td>2</td>
+                <td>4</td>
+              </tr>
+
+              <tr class="cat-row"><td colspan="4">Vehicle Care</td></tr>
+              <tr>
+                <td class="feature-col">Smart battery tender service</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Monthly vehicle startup &amp; idle</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Tire pressure monitoring</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Pre-trip preparation</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Post-trip spot-free rinse &amp; wipe-down</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Monthly vehicle inspection report</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+
+              <tr class="cat-row"><td colspan="4">Concierge &amp; Services</td></tr>
+              <tr>
+                <td class="feature-col">Member wash bay access</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Concierge service</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td>Complimentary</td>
+              </tr>
+              <tr>
+                <td class="feature-col">Detailing coordination</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+
+              <tr class="cat-row"><td colspan="4">Community &amp; Events</td></tr>
+              <tr>
+                <td class="feature-col">Community events &amp; meets</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">Organized member drives</td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feature-col">VIP events &amp; exclusive private drives</td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-no">—</span></td>
+                <td><span class="check-yes">✓</span></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
       </div>
     </section>
+
+    <!-- =====================================================
+         MEMBERSHIP FAQ
+         ===================================================== -->
+    <section class="section-darker" aria-labelledby="mem-faq-title">
+      <div class="max-w-3xl mx-auto px-6 py-20">
+
+        <div class="text-center mb-10">
+          <div class="section-label">Common Questions</div>
+          <h2 class="section-title-light" id="mem-faq-title">Membership FAQ</h2>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-toggle" aria-expanded="false" aria-controls="mfaq-a-1" id="mfaq-q-1">
+            <span>Are membership spaces available now?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer" id="mfaq-a-1" role="region" aria-labelledby="mfaq-q-1">
+            <p>
+              Azzurro Z opens Summer 2026. We are currently accepting waitlist reservations.
+              Waitlist members receive priority access to space selection and preferred pricing
+              before the facility opens to the general public.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-toggle" aria-expanded="false" aria-controls="mfaq-a-2" id="mfaq-q-2">
+            <span>Can I upgrade or downgrade my tier after joining?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer" id="mfaq-a-2" role="region" aria-labelledby="mfaq-q-2">
+            <p>
+              Yes — subject to space availability. Upgrades can generally be accommodated at the
+              start of the next billing cycle. Downgrades may be requested with 30 days notice.
+              Contact the team to discuss your options.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-toggle" aria-expanded="false" aria-controls="mfaq-a-3" id="mfaq-q-3">
+            <span>Can I store more than one vehicle?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer" id="mfaq-a-3" role="region" aria-labelledby="mfaq-q-3">
+            <p>
+              Each membership covers one storage space. Members who wish to store multiple
+              vehicles may hold multiple memberships at the same or different tiers, subject
+              to space availability. Reach out to discuss multi-vehicle arrangements.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-toggle" aria-expanded="false" aria-controls="mfaq-a-4" id="mfaq-q-4">
+            <span>Is there a minimum membership commitment?</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer" id="mfaq-a-4" role="region" aria-labelledby="mfaq-q-4">
+            <p>
+              Membership terms and commitment periods will be confirmed prior to opening.
+              Join the waitlist and we'll provide complete membership agreement details
+              as we approach the Summer 2026 launch.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CTA — JOIN WAITLIST
+         ===================================================== -->
+    <section class="section-dark hero-pattern" style="padding:5rem 1.5rem;" aria-labelledby="mem-cta-title">
+      <div class="max-w-2xl mx-auto text-center">
+        <div class="section-label">Reserve Your Space</div>
+        <h2 class="section-title-light mt-2 mb-4" id="mem-cta-title">Ready to Join?</h2>
+        <p class="section-sub-light mx-auto mb-8">
+          Spaces are limited and will be allocated from the waitlist. Tell us about your
+          collection and preferred tier — we'll be in touch as we approach opening.
+        </p>
+        <a class="btn-primary" href="/#waitlist" aria-label="Go to the waitlist form">
+          Join the Waitlist
+        </a>
+        <p style="margin-top:1.5rem;font-size:0.72rem;color:rgba(192,192,192,0.35);letter-spacing:0.07em;">
+          Opening Summer 2026 &nbsp;&middot;&nbsp; 1495 S Platte River Drive, Denver, CO 80223
+        </p>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="bg-navy-dark border-t border-white/5 py-10 text-center" role="contentinfo">
-    <p class="text-xs text-gray-500">© 2026 Azzurro Z LLC. All rights reserved. <a href="/" class="text-gray-400 hover:text-white transition-colors ml-2">← Back to Home</a></p>
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-8">
+
+        <div class="md:col-span-1">
+          <div class="footer-logo">Azzurro Z</div>
+          <div class="footer-tagline-sub">Denver Vintage Car Storage</div>
+          <p class="footer-origin">
+            Named after the 1972 Ferrari Dino 246 GTC in Azzurro blue that started it all.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Explore</div>
+          <a class="footer-link" href="/#about">About</a>
+          <a class="footer-link" href="/#why">Why Azzurro Z</a>
+          <a class="footer-link" href="membership.html">Membership</a>
+          <a class="footer-link" href="/#services">Services</a>
+          <a class="footer-link" href="/#faq">FAQ</a>
+        </div>
+
+        <div>
+          <div class="footer-heading">Services</div>
+          <span class="footer-text">Climate-Controlled Storage</span>
+          <span class="footer-text">Battery Tender Service</span>
+          <span class="footer-text">Monthly Vehicle Startups</span>
+          <span class="footer-text">Pre &amp; Post-Trip Prep</span>
+          <span class="footer-text">Concierge Service</span>
+          <span class="footer-text">Community Events</span>
+        </div>
+
+        <div>
+          <div class="footer-heading">Location</div>
+          <address class="footer-address">
+            1495 S Platte River Drive<br />
+            Denver, CO 80223<br /><br />
+            Opening Summer 2026
+          </address>
+          <a class="footer-link-cta" href="/#waitlist">Join the Waitlist &rarr;</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Azzurro Z. All rights reserved.</span>
+        <span>Denver's Premier Vintage Car Storage</span>
+      </div>
+    </div>
   </footer>
 
   <script src="js/main.js"></script>
