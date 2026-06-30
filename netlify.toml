@@ -1,5 +1,6 @@
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 # Redirect non-www to www
 [[redirects]]
@@ -12,6 +13,11 @@
 [[redirects]]
   from = "/membership"
   to = "/membership.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard.html"
   status = 200
 
 # 404

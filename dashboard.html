@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleet Dashboard — Azzurro Z</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="canonical" href="https://www.azzurroz.com/dashboard" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <style>
+    /* ── Dashboard-specific styles ─────────────────────── */
+    :root {
+      --navy-deep: #0F3A5E;
+      --navy-dark: #0A2A42;
+      --blue-mid:  #2B7AB5;
+      --gold:      #c9a96e;
+      --gold-dark: #a8864e;
+      --white:     #f5f5f5;
+      --muted:     rgba(245,245,245,0.55);
+      --border:    rgba(245,245,245,0.12);
+      --border-gold: rgba(201,169,110,0.3);
+      --red-open:  #e05c5c;
+      --green-ok:  #5cb85c;
+      --amber:     #e0a44a;
+    }
+
+    body {
+      background: var(--navy-dark);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,42,66,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-back {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--gold); }
+
+    /* Page layout */
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    .page-header {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-gold);
+      padding-bottom: 1.5rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 2.2rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.35rem;
+    }
+
+    .page-header h1 span { color: var(--gold); }
+
+    .page-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Section */
+    .section { margin-bottom: 3rem; }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-gold);
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: rgba(15,58,94,0.35);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    thead tr {
+      background: rgba(15,58,94,0.7);
+      border-bottom: 1px solid var(--border-gold);
+    }
+
+    th {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--white);
+      vertical-align: top;
+      white-space: normal;
+      min-width: 100px;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    tbody tr:hover {
+      background: rgba(43,122,181,0.12);
+    }
+
+    /* Priority badges */
+    .badge {
+      display: inline-block;
+      padding: 0.2em 0.6em;
+      border-radius: 3px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .badge-high   { background: rgba(224,92,92,0.2);  color: var(--red-open);  border: 1px solid rgba(224,92,92,0.35); }
+    .badge-medium { background: rgba(224,164,74,0.2); color: var(--amber);     border: 1px solid rgba(224,164,74,0.35); }
+    .badge-low    { background: rgba(92,184,92,0.15); color: var(--green-ok);  border: 1px solid rgba(92,184,92,0.3); }
+
+    /* Status dots */
+    .status-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+
+    .status-dot::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+
+    .status-open     .status-dot::before { background: var(--red-open); }
+    .status-resolved .status-dot::before { background: var(--green-ok); }
+    .status-progress .status-dot::before { background: var(--amber); }
+
+    /* Condition */
+    .cond-ok   { color: var(--green-ok); }
+    .cond-warn { color: var(--amber); }
+    .cond-fail { color: var(--red-open); }
+
+    /* Notes cell */
+    .notes-cell {
+      color: var(--muted);
+      font-size: 0.78rem;
+      max-width: 240px;
+    }
+
+    /* Empty / loading / error states */
+    .state-msg {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* Last-updated bar */
+    .updated-bar {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: right;
+      margin-top: 0.6rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .page { padding: 1.5rem 1rem 3rem; }
+      .page-header h1 { font-size: 1.6rem; }
+      th, td { padding: 0.6rem 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="/" class="nav-logo">Azzurro<span>Z</span></a>
+    <a href="/" class="nav-back">← Back to site</a>
+  </nav>
+
+  <!-- Page -->
+  <main class="page">
+    <div class="page-header">
+      <h1>Fleet <span>Dashboard</span></h1>
+      <p class="page-meta" id="page-meta">Loading fleet data…</p>
+    </div>
+
+    <!-- Start Log -->
+    <div class="section">
+      <div class="section-title">Start Log</div>
+      <div class="table-wrap">
+        <table id="start-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Vehicle</th>
+              <th>Entity</th>
+              <th>Location</th>
+              <th>Started By</th>
+              <th>Condition</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="start-body">
+            <tr><td colspan="7" class="state-msg">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="updated-bar" id="start-updated"></div>
+    </div>
+
+    <!-- Maintenance Items -->
+    <div class="section">
+      <div class="section-title">Maintenance Items</div>
+      <div class="table-wrap">
+        <table id="maint-table">
+          <thead>
+            <tr>
+              <th>Date Noted</th>
+              <th>Vehicle</th>
+              <th>Entity</th>
+              <th>Item</th>
+              <th>Priority</th>
+              <th>Assigned To</th>
+              <th>Status</th>
+              <th>Resolved</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="maint-body">
+            <tr><td colspan="9" class="state-msg">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="updated-bar" id="maint-updated"></div>
+    </div>
+  </main>
+
+  <script>
+    // ── Helpers ───────────────────────────────────────────
+    function esc(str) {
+      if (!str) return '—';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function fmtDate(d) {
+      if (!d) return '—';
+      try {
+        const dt = new Date(d);
+        if (isNaN(dt)) return esc(d);
+        return dt.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+      } catch { return esc(d); }
+    }
+
+    function priorityBadge(p) {
+      if (!p) return '—';
+      const cls = { High: 'badge-high', Medium: 'badge-medium', Low: 'badge-low' }[p] || '';
+      return `<span class="badge ${cls}">${esc(p)}</span>`;
+    }
+
+    function condClass(c) {
+      if (!c) return '';
+      const lc = c.toLowerCase();
+      if (lc === 'ok' || lc === 'good') return 'cond-ok';
+      if (lc.includes('warn') || lc.includes('check')) return 'cond-warn';
+      if (lc.includes('fail') || lc.includes('no start')) return 'cond-fail';
+      return '';
+    }
+
+    function statusCell(s) {
+      if (!s) return '—';
+      const lc = s.toLowerCase();
+      let cls = 'status-open';
+      if (lc === 'resolved' || lc === 'closed') cls = 'status-resolved';
+      else if (lc.includes('progress') || lc.includes('pending')) cls = 'status-progress';
+      return `<span class="${cls}"><span class="status-dot">${esc(s)}</span></span>`;
+    }
+
+    function fmtUpdated(iso) {
+      if (!iso) return '';
+      try {
+        const dt = new Date(iso);
+        return 'Last updated: ' + dt.toLocaleString('en-US', {
+          month: 'short', day: 'numeric', year: 'numeric',
+          hour: 'numeric', minute: '2-digit', timeZoneName: 'short'
+        });
+      } catch { return iso; }
+    }
+
+    // ── Render ────────────────────────────────────────────
+    function renderStartLog(rows) {
+      const tbody = document.getElementById('start-body');
+      if (!rows || !rows.length) {
+        tbody.innerHTML = '<tr><td colspan="7" class="state-msg">No start log entries.</td></tr>';
+        return;
+      }
+      // Sort by date desc
+      rows = [...rows].sort((a, b) => new Date(b.Date || b.date || 0) - new Date(a.Date || a.date || 0));
+      tbody.innerHTML = rows.map(r => `
+        <tr>
+          <td>${fmtDate(r.Date || r.date)}</td>
+          <td><strong>${esc(r.Vehicle || r.vehicle)}</strong></td>
+          <td>${esc(r.Entity || r.entity)}</td>
+          <td>${esc(r.Location || r.location)}</td>
+          <td>${esc(r['Started By'] || r.started_by)}</td>
+          <td class="${condClass(r.Condition || r.condition)}">${esc(r.Condition || r.condition)}</td>
+          <td class="notes-cell">${esc(r.Notes || r.notes)}</td>
+        </tr>
+      `).join('');
+    }
+
+    function renderMaintenance(rows) {
+      const tbody = document.getElementById('maint-body');
+      if (!rows || !rows.length) {
+        tbody.innerHTML = '<tr><td colspan="9" class="state-msg">No maintenance items.</td></tr>';
+        return;
+      }
+      // Sort: open first, then by date noted desc
+      const priorityOrder = { High: 0, Medium: 1, Low: 2 };
+      rows = [...rows].sort((a, b) => {
+        const aOpen = (a.Status || a.status || '').toLowerCase() !== 'resolved';
+        const bOpen = (b.Status || b.status || '').toLowerCase() !== 'resolved';
+        if (aOpen !== bOpen) return aOpen ? -1 : 1;
+        const ap = priorityOrder[a.Priority || a.priority] ?? 9;
+        const bp = priorityOrder[b.Priority || b.priority] ?? 9;
+        return ap - bp;
+      });
+      tbody.innerHTML = rows.map(r => `
+        <tr>
+          <td>${fmtDate(r['Date Noted'] || r.date_noted)}</td>
+          <td><strong>${esc(r.Vehicle || r.vehicle)}</strong></td>
+          <td>${esc(r.Entity || r.entity)}</td>
+          <td>${esc(r.Item || r.item)}</td>
+          <td>${priorityBadge(r.Priority || r.priority)}</td>
+          <td>${esc(r['Assigned To'] || r.assigned_to)}</td>
+          <td>${statusCell(r.Status || r.status)}</td>
+          <td>${fmtDate(r['Resolved Date'] || r.resolved_date)}</td>
+          <td class="notes-cell">${esc(r.Notes || r.notes)}</td>
+        </tr>
+      `).join('');
+    }
+
+    // ── Fetch ─────────────────────────────────────────────
+    async function loadData() {
+      try {
+        const res = await fetch('/.netlify/functions/vehicles');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+
+        renderStartLog(data.start_log || []);
+        renderMaintenance(data.maintenance_items || []);
+
+        const updated = fmtUpdated(data.last_updated);
+        document.getElementById('start-updated').textContent = updated;
+        document.getElementById('maint-updated').textContent = updated;
+
+        const startCount = (data.start_log || []).length;
+        const openMaint = (data.maintenance_items || []).filter(
+          m => (m.Status || m.status || '').toLowerCase() !== 'resolved'
+        ).length;
+
+        document.getElementById('page-meta').textContent =
+          `${startCount} start log ${startCount === 1 ? 'entry' : 'entries'} · ${openMaint} open maintenance ${openMaint === 1 ? 'item' : 'items'}`;
+
+      } catch (err) {
+        document.getElementById('page-meta').textContent = 'Error loading fleet data.';
+        const errMsg = `<tr><td colspan="9" class="state-msg">Unable to load data — ${esc(err.message)}</td></tr>`;
+        document.getElementById('start-body').innerHTML = errMsg.replace('colspan="9"', 'colspan="7"');
+        document.getElementById('maint-body').innerHTML = errMsg;
+      }
+    }
+
+    loadData();
+  </script>
+</body>
+</html>
