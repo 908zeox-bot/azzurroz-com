@@ -11,7 +11,7 @@ const path = require("path");
 
 // CF tunnel URL — ephemeral trycloudflare.com; update if VedaZ restarts and URL changes.
 // Secret is set as VEDAZ_SECRET env var in Netlify build settings.
-const TUNNEL_BASE = process.env.VEDAZ_TUNNEL_URL || "https://rochester-automobile-mattress-tolerance.trycloudflare.com";
+const TUNNEL_BASE = process.env.VEDAZ_TUNNEL_URL || "https://installed-bars-soma-determination.trycloudflare.com";
 const VEDAZ_URL = TUNNEL_BASE.replace(/\/$/, "") + "/metrics/vehicles";
 const VEDAZ_SECRET = process.env.VEDAZ_SECRET || "";
 const OUT_PATH = path.join(__dirname, "..", "data", "vehicles.json");
