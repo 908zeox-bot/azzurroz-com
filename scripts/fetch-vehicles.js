@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Build-time script: fetches vehicle metrics from VedaZ API and writes
 // data/vehicles.json into the repo so the dashboard reads it statically.
-// Runs during Netlify build (Tailscale-reachable environment).
+// Runs during Netlify build via Cloudflare Tunnel (public HTTPS — no Tailscale needed).
 // Triggered by: AzzurroZ metrics-push.sh → POST Netlify deploy hook → rebuild.
 
 const https = require("https");
@@ -9,13 +9,19 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-const VEDAZ_URL = "http://100.103.67.60:6400/metrics/vehicles";
+// CF tunnel URL — ephemeral trycloudflare.com; update if VedaZ restarts and URL changes.
+// Secret is set as VEDAZ_SECRET env var in Netlify build settings.
+const TUNNEL_BASE = process.env.VEDAZ_TUNNEL_URL || "https://rochester-automobile-mattress-tolerance.trycloudflare.com";
+const VEDAZ_URL = TUNNEL_BASE.replace(/\/$/, "") + "/metrics/vehicles";
+const VEDAZ_SECRET = process.env.VEDAZ_SECRET || "";
 const OUT_PATH = path.join(__dirname, "..", "data", "vehicles.json");
 
 function fetch(url) {
   return new Promise((resolve, reject) => {
     const lib = url.startsWith("https") ? https : http;
-    const req = lib.get(url, { headers: { "X-Agent-ID": "azzurroz-build" } }, (res) => {
+    const headers = { "X-Agent-ID": "azzurroz-build" };
+    if (VEDAZ_SECRET) headers["X-VedaZ-Secret"] = VEDAZ_SECRET;
+    const req = lib.get(url, { headers }, (res) => {
       let body = "";
       res.on("data", (chunk) => (body += chunk));
       res.on("end", () => {
