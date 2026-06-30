@@ -421,7 +421,7 @@
     // ── Fetch ─────────────────────────────────────────────
     async function loadData() {
       try {
-        const res = await fetch('/.netlify/functions/vehicles');
+        const res = await fetch('/data/vehicles.json');
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const data = await res.json();
 
