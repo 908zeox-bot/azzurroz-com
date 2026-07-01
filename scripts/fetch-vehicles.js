@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Build-time script: fetches vehicle metrics from VedaZ API and writes
 // data/vehicles.json into the repo so the dashboard reads it statically.
-// Runs during Netlify build via Cloudflare Tunnel (public HTTPS — no Tailscale needed).
+// Runs during Netlify build via Tailscale-internal VedaZ endpoint.
+// If VedaZ is unreachable at build time, writes empty JSON so site doesn't break.
 // Triggered by: AzzurroZ metrics-push.sh → POST Netlify deploy hook → rebuild.
 
 const https = require("https");
@@ -9,19 +10,15 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 
-// CF tunnel URL — ephemeral trycloudflare.com; update if VedaZ restarts and URL changes.
-// Secret is set as VEDAZ_SECRET env var in Netlify build settings.
-const TUNNEL_BASE = process.env.VEDAZ_TUNNEL_URL || "https://installed-bars-soma-determination.trycloudflare.com";
-const VEDAZ_URL = TUNNEL_BASE.replace(/\/$/, "") + "/metrics/vehicles";
-const VEDAZ_SECRET = process.env.VEDAZ_SECRET || "";
+// VedaZ Tailscale-internal endpoint — reachable from ZeoX/VedaZ build context.
+// Netlify cloud build runners cannot reach this; fallback to empty JSON in that case.
+const VEDAZ_URL = "http://100.103.67.60:6400/metrics/vehicles";
 const OUT_PATH = path.join(__dirname, "..", "data", "vehicles.json");
 
 function fetch(url) {
   return new Promise((resolve, reject) => {
     const lib = url.startsWith("https") ? https : http;
-    const headers = { "X-Agent-ID": "azzurroz-build" };
-    if (VEDAZ_SECRET) headers["X-VedaZ-Secret"] = VEDAZ_SECRET;
-    const req = lib.get(url, { headers }, (res) => {
+    const req = lib.get(url, { headers: { "X-Agent-ID": "azzurroz-build" } }, (res) => {
       let body = "";
       res.on("data", (chunk) => (body += chunk));
       res.on("end", () => {
@@ -32,7 +29,7 @@ function fetch(url) {
         }
       });
     });
-    req.setTimeout(15000, () => { req.destroy(); reject(new Error("Timeout")); });
+    req.setTimeout(10000, () => { req.destroy(); reject(new Error("Timeout")); });
     req.on("error", reject);
   });
 }
@@ -43,7 +40,6 @@ function fetch(url) {
     const body = await fetch(VEDAZ_URL);
     const data = JSON.parse(body);
 
-    // Ensure output directory exists
     fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
     fs.writeFileSync(OUT_PATH, JSON.stringify(data, null, 2));
 
@@ -54,7 +50,7 @@ function fetch(url) {
     console.log(`[fetch-vehicles]   last_updated: ${data.last_updated}`);
   } catch (err) {
     console.error("[fetch-vehicles] ERROR:", err.message);
-    // Write a fallback so the dashboard doesn't hard-fail
+    // Write empty fallback — dashboard shows empty state rather than breaking
     const fallback = {
       start_log: [],
       maintenance_items: [],
@@ -65,6 +61,5 @@ function fetch(url) {
     fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
     fs.writeFileSync(OUT_PATH, JSON.stringify(fallback, null, 2));
     console.warn("[fetch-vehicles] Fallback JSON written — dashboard will show empty state.");
-    // Don't exit 1; let the build succeed with empty data rather than break the site
   }
 })();
