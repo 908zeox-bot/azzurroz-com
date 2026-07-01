@@ -1,7 +1,7 @@
 [build]
   publish = "."
   functions = "netlify/functions"
-  command = "node scripts/fetch-vehicles.js"
+  # command removed — data/vehicles.json pre-committed by metrics-push.sh; no build fetch needed
 
 # Redirect non-www to www
 [[redirects]]
